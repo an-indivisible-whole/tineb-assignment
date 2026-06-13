@@ -11,7 +11,6 @@ export default function CandidateFilter({
 }) {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 3, mb: 4 }}>
-      {/* State Dropdown */}
       <FormControl fullWidth variant="outlined">
         <InputLabel id="state-label">Select State</InputLabel>
         <Select
@@ -28,7 +27,6 @@ export default function CandidateFilter({
         </Select>
       </FormControl>
 
-      {/* Constituency Dropdown */}
       <FormControl fullWidth variant="outlined" disabled={!selectedState}>
         <InputLabel id="constituency-label">Select Constituency</InputLabel>
         <Select

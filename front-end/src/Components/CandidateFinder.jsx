@@ -31,13 +31,11 @@ export default function CandidateFinder() {
       });
   }, []);
 
-  // Compute unique sorted states
   const states = useMemo(() => {
     const uniqueStates = [...new Set(electionData.map((item) => item.state))];
     return uniqueStates.filter(Boolean).sort();
   }, [electionData]);
 
-  // Compute constituencies matching selected state
   const constituencies = useMemo(() => {
     if (!selectedState) return [];
     return electionData
@@ -46,7 +44,6 @@ export default function CandidateFinder() {
       .sort();
   }, [selectedState, electionData]);
 
-  // Locate selected candidate target profile
   const candidate = useMemo(() => {
     if (!selectedState || !selectedConstituency) return null;
     return electionData.find(
@@ -70,7 +67,6 @@ export default function CandidateFinder() {
       const jsonResponse = await response.json();
       const updatedRecord = jsonResponse.data;
 
-      // Optimistically update local application state array
       setElectionData((prevData) =>
         prevData.map((item) => (item._id === id ? updatedRecord : item))
       );

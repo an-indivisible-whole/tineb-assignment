@@ -2,10 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Candidate = require('../Contracts/Candidate');
 
-// ---------------------------------------------------
-// GET: Fetch all candidates
-// Route: /api/candidates
-// ---------------------------------------------------
 router.get('/candidates', async (req, res) => {
   try {
     const candidates = await Candidate.find({}).sort({ state: 1, constituency: 1 });
@@ -15,10 +11,6 @@ router.get('/candidates', async (req, res) => {
   }
 });
 
-// ---------------------------------------------------
-// PUT: Update a specific candidate's details
-// Route: /api/updateCandidate/:id
-// ---------------------------------------------------
 router.put('/updateCandidate/:id', async (req, res) => {
   try {
     const candidateId = req.params.id;

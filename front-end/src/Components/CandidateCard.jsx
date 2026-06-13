@@ -13,7 +13,6 @@ export default function CandidateCard({ candidate, onUpdateCandidate }) {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
 
-  // Reset form values whenever the selected candidate changes
   useEffect(() => {
     if (candidate) {
       setFormData({
@@ -49,7 +48,6 @@ export default function CandidateCard({ candidate, onUpdateCandidate }) {
         </Typography>
 
         {isEditing ? (
-          /* EDIT MODE PROFILE */
           <Box
             component="form"
             sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 1 }}
@@ -106,7 +104,6 @@ export default function CandidateCard({ candidate, onUpdateCandidate }) {
             </Stack>
           </Box>
         ) : (
-          /* VIEW MODE PROFILE */
           <Box sx={{ mt: 1 }}>
             <Typography
               variant="h5"
